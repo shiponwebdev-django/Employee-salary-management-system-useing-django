@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Salary Structure – {{ employee.full_name }}</h2>
+
+<form method="post">
+{% csrf_token %}
+<input name="basic_salary" placeholder="Basic Salary">
+<input name="hra" placeholder="HRA">
+<input name="allowance" placeholder="Allowance">
+<input name="tax" placeholder="Tax">
+<input name="pf" placeholder="PF">
+<button type="submit">Save</button>
+</form>
+
+{% endblock %}

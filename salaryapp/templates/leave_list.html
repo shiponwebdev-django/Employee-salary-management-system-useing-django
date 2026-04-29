@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Leave Requests</h2>
+
+<table>
+<tr>
+<th>Employee</th>
+<th>From</th>
+<th>To</th>
+<th>Status</th>
+<th>Action</th>
+</tr>
+
+{% for l in leaves %}
+<tr>
+<td>{{ l.employee.full_name }}</td>
+<td>{{ l.from_date }}</td>
+<td>{{ l.to_date }}</td>
+<td>{{ l.is_approved }}</td>
+<td>
+{% if not l.is_approved %}
+<a href="{% url 'approve_leave' l.id %}">Approve</a>
+{% endif %}
+</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Employee List</h2>
+<a class="btn" href="{% url 'add_employee' %}">Add Employee</a>
+
+<table>
+<tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Department</th>
+    <th>Action</th>
+</tr>
+
+{% for emp in employees %}
+<tr>
+    <td>{{ emp.employee_id }}</td>
+    <td>{{ emp.full_name }}</td>
+    <td>{{ emp.department }}</td>
+    <td>
+        <a href="{% url 'add_salary_structure' emp.id %}">Salary Structure</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

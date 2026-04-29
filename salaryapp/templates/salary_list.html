@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Salary List</h2>
+
+<table>
+<tr>
+<th>Employee</th>
+<th>Month</th>
+<th>Net Salary</th>
+<th>Action</th>
+</tr>
+
+{% for s in salaries %}
+<tr>
+<td>{{ s.employee.full_name }}</td>
+<td>{{ s.month }} {{ s.year }}</td>
+<td>{{ s.net_salary }}</td>
+<td>
+<a href="{% url 'salary_detail' s.id %}">View</a>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock %}

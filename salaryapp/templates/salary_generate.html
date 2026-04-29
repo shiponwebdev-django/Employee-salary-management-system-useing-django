@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Generate Salary</h2>
+
+<form method="post">
+{% csrf_token %}
+
+<select name="employee">
+{% for emp in employees %}
+<option value="{{ emp.id }}">{{ emp.full_name }}</option>
+{% endfor %}
+</select>
+
+<input name="month" placeholder="Month">
+<input name="year" placeholder="Year">
+
+<button type="submit">Generate</button>
+</form>
+
+{% endblock %}

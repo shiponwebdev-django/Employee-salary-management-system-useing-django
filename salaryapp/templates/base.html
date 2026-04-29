@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Salary Management System</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<style>
+    body {
+    font-family: Arial;
+    background: #f4f6f9;
+    margin: 0;
+}
+
+.navbar {
+    background: #2c3e50;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar a {
+    color: white;
+    margin-left: 15px;
+    text-decoration: none;
+}
+
+.container {
+    padding: 20px;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+button, .btn {
+    background: #27ae60;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    text-decoration: none;
+    display: inline-block;
+}
+</style>
+<body>
+
+<div class="navbar">
+    <h2>ESMS</h2>
+    <div>
+        <a href="{% url 'employee_list' %}">Employees</a>
+        <a href="{% url 'attendance_list' %}">Attendance</a>
+        <a href="{% url 'leave_list' %}">Leave</a>
+        <a href="{% url 'salary_list' %}">Salary</a>
+        <a href="/logout/">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+    {% block content %}{% endblock %}
+</div>
+
+</body>
+</html>

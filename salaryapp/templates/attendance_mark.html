@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Mark Attendance</h2>
+
+<form method="post">
+{% csrf_token %}
+
+<select name="employee">
+{% for emp in employees %}
+<option value="{{ emp.id }}">{{ emp.full_name }}</option>
+{% endfor %}
+</select>
+
+<input type="date" name="date" required>
+
+<select name="status">
+<option value="Present">Present</option>
+<option value="Absent">Absent</option>
+</select>
+
+<button type="submit">Submit</button>
+</form>
+
+{% endblock %}

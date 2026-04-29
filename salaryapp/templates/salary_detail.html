@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Salary Details</h2>
+
+<p>Employee: {{ salary.employee.full_name }}</p>
+<p>Gross: {{ salary.gross_salary }}</p>
+<p>Deduction: {{ salary.total_deduction }}</p>
+<p>Net Salary: {{ salary.net_salary }}</p>
+
+<a href="{% url 'upload_payslip' salary.id %}">Upload Payslip</a>
+
+{% endblock %}

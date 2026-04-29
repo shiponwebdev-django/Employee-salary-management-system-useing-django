@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Apply Leave</h2>
+
+<form method="post">
+{% csrf_token %}
+<input type="date" name="from_date" required>
+<input type="date" name="to_date" required>
+<textarea name="reason" placeholder="Reason"></textarea>
+<button type="submit">Apply</button>
+</form>
+
+{% endblock %}
